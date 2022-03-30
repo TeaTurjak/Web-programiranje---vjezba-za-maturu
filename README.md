@@ -1,6 +1,9 @@
 # Priprema za maturu iz Hrvatskog jezika
-Ovaj projekt je napravljen u sklopu kolegija Web programiranje. Projekt omogućava korisnicima da se pripreme za maturu iz Hrvatskog jezika riješavajući zadatke iz područja jezika i područja književnosti.
-Korisnici će također imati ponuđenu opciju biranja više ili niže razine riješavanja mature iz Hrvatskog jezika.
+
+### O projektu:
+Ovaj projekt je napravljen u sklopu kolegija Web programiranje koji se odvija na Fakultetu elektrotehnike, računarstva i informacijskih tehnologija u Osijeku. 
+Projekt će omogućiti korisnicima pripremu za maturu iz Hrvatskog jezika riješavajući zadatke iz područja jezika i područja književnosti.
+Korisnici će imati mogućnost izabrati težinu zadataka koju će rješavati ovisno o tome hoće li polagati višu ili nižu razinu mature iz Hrvatskog jezika.
 
 ### Web projekt će se sastojati od:
 1. Početne stranice s opisom i opcijom registracije ili logiranja korisnika.
@@ -11,17 +14,34 @@ Korisnici će također imati ponuđenu opciju biranja više ili niže razine rij
 6. Postojati će opcija Moj profil gdje će korisnik imati uvid u svoj napredak (grafovi, po datumu riješavanja će imati postotak točnosti).
 7. Opcija za logout koja će voditi do početne stranice.
 
-Frontend će se raditi u Visual Studio Codeu koristeći Bootstrap.
-Aplikacija će biti u Reactu, koristiti ćemo Javascript.
-Baza podataka bit će uspostavljena pomoću...
+### Korišteni alati za realizaciju projekta:
 
-Grupa: MATURA
+[Visual Studio Code](https://code.visualstudio.com/)           | [Bootstrap](https://getbootstrap.com/)
+:----------------------------:|:-------------------------:
+<img src="https://code.visualstudio.com/assets/apple-touch-icon.png" width=50% height=50%>  |  <img src="https://cdn.iconscout.com/icon/free/png-256/bootstrap-6-1175203.png" width=50% height=50%>
 
-Članovi tima:
-1. Mihaela Mandić
-2. Tea Turjak
+- Frontend će se raditi u Visual Studio Codeu koristeći Bootstrap.
 
-Smjer: DRC
+[React](https://reactjs.org/)     | [JavaScript](https://www.javascript.com/)
+:--------------------------------:|:----------------------------------------------:
+<img src="https://cdn.coderons.com/general/tags/reactjs.png" width=50% height=50%>  |  <img src="https://cdn.coderons.com/general/tags/javascript.png" width=50% height=50%>
+
+- Aplikacija će biti u Reactu, koristiti ćemo Javascript.
+
+[odabrana tehnologija](https://www.google.com/)     | [odabrana tehnologija](https://www.google.com/)
+:--------------------------------:|:----------------------------------------------:
+<img src="?????" width=50% height=50%>  |  <img src="????" width=50% height=50%>
+
+- Baza podataka bit će uspostavljena pomoću...
+
+### Projektni tim:
+
++ Ime tima: MATURA
++ Smjer: DRC-LV2
++ Članovi tima:
+    1. [Mihaela Mandić](https://github.com/mihaelamandic)
+    2. [Tea Turjak](https://github.com/TeaTurjak)
+
 
 
 
