@@ -9,3 +9,11 @@ body {
     background-size: cover;
     opacity: 0.75;
 }
+
+.invoice.status {
+    padding: 0.5em;
+  }
+  
+  .hidden {
+    display: none;
+  }

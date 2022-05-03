@@ -1,5 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+include '../db/db_connect.php';
+session_start();
+if (isset($_SESSION['ime'])){
+  header('location: odabirIspita.php');
+}
+echo $_SESSION['ime'];
+if (isset($_POST['email']) and isset($_POST['lozinka'])) {
+  $stmt = $pdo->prepare('select * from korisnici where email = :email');
+ 
+  try{
+    $stmt->execute(array(
+      ':email' => $_POST['email']
+    ));
+    $result = $stmt->fetch();
+    if (password_verify($_POST['lozinka'], $result['lozinka'])){
+      $_SESSION['ime'] = $_POST['ime'];
+      header('location: odabirIspita.php');
+    }
+   
+  }catch(\PDOException $e){
+
+  }
+ 
+}
+?>
 <head>
   <title>Log in</title>
   <meta charset="utf-8">
@@ -22,7 +48,7 @@
       </div>
 
       <div class="d-grid gap-2 d-md-flex justify-content-md-end p-1">
-        <a href="..\pages\homepage.html" class="btn btn-secondary p-0.5">Povratak na početnu stranicu</a>
+        <a href="..\pages\homepage.php" class="btn btn-secondary p-0.5">Povratak na početnu stranicu</a>
        </div>
     </div>
   </nav>
@@ -44,24 +70,24 @@
                         </div>
                     </div>
 
-                  <form id="form">
+                    <form method = "post" action = "log_in.php">
                     <div class="form-outline mb-4">
                       <label class="form-label" for="e-mail_input">Email adresa:</label>
-                      <input type="email" id="username" class="form-control form-control-lg" onclick="validateEmailForm()" placeholder="ime.prezime@gmail.com"/>
+                      <input name="email" type="email" id="username" class="form-control form-control-lg" onclick="validateEmailForm()" placeholder="ime.prezime@gmail.com"/>
                       <div id="error-Username" class="text-danger"></div>
                     </div>
   
                     <div class="form-outline mb-4">
                       <label class="form-label" for="pass_input">Lozinka:</label>
-                      <input type="password" id="password" class="form-control form-control-lg"  onclick="validatePasswordForm()"  placeholder="lozinka"/>
+                      <input name="lozinka" type="password" id="password" class="form-control form-control-lg"  onclick="validatePasswordForm()"  placeholder="lozinka"/>
                       <div id="error-Password" class="text-danger"></div>
                     </div>
   
                     <div class="pt-1 mb-4">
-                      <button class="btn btn-dark btn-lg btn-block" type="button" id="Login_btn" onclick="validate()">Prijava</button>
+                      <button class="btn btn-dark btn-lg btn-block" type="submit" id="Login_btn" >Prijava</button>
                     </div>
 
-                    <p class="mb-5 pb-lg-2 text-muted mt-5 mb-0">Nemaš račun? <a href="..\pages\register.html" class="fw-bold text-body"><u>Registriraj se ovdje</u></a></p>
+                    <p class="mb-5 pb-lg-2 text-muted mt-5 mb-0">Nemaš račun? <a href="..\pages\register.php" class="fw-bold text-body"><u>Registriraj se ovdje</u></a></p>
   
                 </div>
               

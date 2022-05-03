@@ -1,5 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+<?php 
+include '../db/db_connect.php';
+session_start();
+if (isset($_POST['ime']) and isset($_POST['email'])  and isset($_POST['lozinka']) and isset($_POST['lozinka_confirm'])) {
+    $stmt = $pdo->prepare('insert into korisnici (ime_prezime, email, lozinka) values (:ime , :email, :lozinka)');
+   $password = password_hash($_POST['lozinka'], CRYPT_BLOWFISH);
+    try{
+      $stmt->execute(array(
+        ':ime' => $_POST['ime'],
+        ':email' => $_POST['email'],
+        ':lozinka' => $password
+      ));
+      $_SESSION['ime'] = $_POST['ime'];
+    }catch(\PDOException $e){
+
+    }
+    header('location: odabirIspita.php');
+}
+?>
 <head>
   <title>Registracija</title>
   <meta charset="utf-8">
@@ -22,7 +41,7 @@
     </div>
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-end p-1">
-      <a href="..\pages\homepage.html" class="btn btn-secondary p-0.5">
+      <a href="..\pages\homepage.php" class="btn btn-secondary p-0.5">
           <span class="glyphicon glyphicon-th-list"></span> Povratak na početnu stranicu
       </a>
   </div>
@@ -40,37 +59,37 @@
                 <div class="card-body p-5">
                   <h2 class="text-uppercase text-center mb-5">Kreiraj novi račun</h2>
     
-                  <form>
+                  <form method = "post" action = "register.php">
     
                     <div class="form-outline mb-4">
                       <label class="form-label">Korisničko ime</label>
-                      <input type="text" id="regname" class="form-control form-control-lg" onclick="validateRegUserNameForm()" aria-describedby="regnameHelp" placeholder="ime prezime"/>
+                      <input name = "ime" type="text" id="regname" class="form-control form-control-lg" onclick="validateRegUserNameForm()" aria-describedby="regnameHelp" placeholder="ime prezime"/>
                       <div id="error-Username" class="text-danger"></div>
                     </div>
     
                     <div class="form-outline mb-4">
                       <label class="form-label" for="form3Example3cg">E-mail adresa:</label>
-                      <input type="email" id="regemail" class="form-control form-control-lg" onclick="validateRegEmailForm()" aria-describedby="emailHelp" placeholder="test.test@gmail.com" />
+                      <input name="email" type="email" id="regemail" class="form-control form-control-lg" onclick="validateRegEmailForm()" aria-describedby="emailHelp" placeholder="test.test@gmail.com" />
                       <div id="error-Email" class="text-danger"></div>
                     </div>
     
                     <div class="form-outline mb-4">
                       <label class="form-label">Lozinka:</label>
-                      <input type="password" id="regpass" class="form-control form-control-lg" onclick="validateRegPasswordForm()" aria-describedby="passwordHelp" placeholder="lozinka"/>
+                      <input name="lozinka" type="password" id="regpass" class="form-control form-control-lg" onclick="validateRegPasswordForm()" aria-describedby="passwordHelp" placeholder="lozinka"/>
                       <div id="error-Password" class="text-danger"></div>
                     </div>
     
                     <div class="form-outline mb-4">
                       <label class="form-label" >Ponovljena lozinka:</label>
-                      <input type="password" id="regpassagain" class="form-control form-control-lg" onclick="validateRegPasswordAgainForm()" aria-describedby="passwordHelp" placeholder="ponovljena lozinka"/>
+                      <input name="lozinka_confirm" type="password" id="regpassagain" class="form-control form-control-lg" onclick="validateRegPasswordAgainForm()" aria-describedby="passwordHelp" placeholder="ponovljena lozinka"/>
                       <div id="error-PasswordAgain" class="text-danger"></div>
                     </div>
     
                     <div class="d-flex justify-content-center">
-                      <button type="button" class="btn btn-success btn-block btn-dark">Registriraj se</button>
+                      <button type="submit" class="btn btn-success btn-block btn-dark">Registriraj se</button>
                     </div>
     
-                    <p class="text-center text-muted mt-5 mb-0">Već imaš račun? <a href="..\pages\log_in.html" class="fw-bold text-body"><u>Prijavi se ovdje</u></a></p>
+                    <p class="text-center text-muted mt-5 mb-0">Već imaš račun? <a href="..\pages\log_in.php" class="fw-bold text-body"><u>Prijavi se ovdje</u></a></p>
     
                   </form>
     

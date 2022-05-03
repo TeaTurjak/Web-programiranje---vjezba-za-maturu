@@ -21,11 +21,11 @@
         <h1>Priprema za maturu iz Hrvatskog jezika</h1>
       </div>
       <div class="d-grid gap-2 d-md-flex justify-content-md-end p-1">
-        <a href="..\pages\log_in.html" class="btn btn-secondary p-0.5">
+        <a href="..\pages\log_in.php" class="btn btn-secondary p-0.5">
             <span class="glyphicon glyphicon-th-list"></span> Prijavi se
         </a>
 
-        <a href="..\pages\register.html" class="btn btn-secondary p-0.5">
+        <a href="..\pages\register.php" class="btn btn-secondary p-0.5">
             <span class="glyphicon glyphicon-th-list"></span> Registracija
         </a>
     </div>
