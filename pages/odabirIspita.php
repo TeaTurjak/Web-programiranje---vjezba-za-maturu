@@ -17,8 +17,7 @@ if (isset($_POST['razina']) and isset($_POST['kategorija'])) {
     
  
 
-  //header('location: ispit.php');
-  header('location: ispitNovo.php');
+  header('location: ispit.php');
  
 }
 ?>
