@@ -48,9 +48,12 @@ if($_SESSION['polazniTekst'] == 1){
         <h1>Priprema za maturu iz Hrvatskog jezika</h1>
       </div>
       <div class="d-grid gap-2 d-md-flex justify-content-md-end p-1">
+      <a href="..\pages\odabirIspita.php" class="btn btn-secondary p-0.5">
+            <span class="glyphicon glyphicon-th-list"></span> Nazad
+        </a>
         <a href="..\pages\log_in.php" class="btn btn-secondary p-0.5">
             <span class="glyphicon glyphicon-th-list"></span> Odjava
-        </a>
+        </a>  
         </div>
     </div>
   </nav>
@@ -96,7 +99,7 @@ if($_SESSION['polazniTekst'] == 1){
             ':id' => $result[$i]['id'],
           ));
           $odgovoriResult = $odgovori->fetchAll();
-       
+          //echo '<pre>' . var_export($odgovoriResult, true) . '</pre>';
          
           if($_SESSION['polazniTekst'] == 1 and $i%3==0){
               echo '<p class="fs-6 fst-italic" id="polazniTekst"> '.$resultTekst[$i]['tekstValue'].'</p>';

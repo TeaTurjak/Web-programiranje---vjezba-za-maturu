@@ -59,6 +59,9 @@ $(document).ready(function(){
         <h1>Priprema za maturu iz Hrvatskog jezika</h1>
       </div>
       <div class="d-grid gap-2 d-md-flex justify-content-md-end p-1">
+      <a href="..\pages\mojiRezultati.php" class="btn btn-secondary p-0.5">
+            <span class="glyphicon glyphicon-th-list"></span> Moji rezultati
+        </a>
         <a href="..\pages\homepage.php" class="btn btn-secondary p-0.5">
             <span class="glyphicon glyphicon-th-list"></span> Odjava
         </a>
@@ -111,8 +114,7 @@ $(document).ready(function(){
           </div>
           </div>
     </div>
-    <p class="fs-5 mt-5">Napomena: Pri rješavanju zadataka samo je jedan odgovor točan. Ukoliko označite više ponuđenih odgovora, Vaš odgovor će biti validiran kao netočan.</p>
-        <button class="btn btn-success btn-lg btn-block" type="submit" id="Start_btn">Započni test</button>
+        <button class="btn btn-success btn-lg btn-block mt-5" type="submit" id="Start_btn">Započni test</button>
     </form>
         
  </div>
