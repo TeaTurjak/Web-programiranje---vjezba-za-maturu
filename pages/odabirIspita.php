@@ -15,10 +15,8 @@ if (isset($_POST['razina']) and isset($_POST['kategorija'])) {
     $_SESSION['polazniTekst'] = 0;
   }
     
- 
 
   header('location: ispit.php');
- 
 }
 ?>
 <head>

@@ -120,12 +120,7 @@ if($_SESSION['polazniTekst'] == 1){
             
 
         }
-        ?>
-
-        
-        
-         
-        
+        ?>      
 
      </div>
      </div>
@@ -137,7 +132,7 @@ if($_SESSION['polazniTekst'] == 1){
      
 
   <div class="mb-5 d-flex justify-content-center">
-      <button class="btn btn-success btn-lg btn-block" type="submit" id="Exit_btn">Završi test</button>
+      <a class="btn btn-success btn-lg btn-block" type="submit" id="Exit_btn">Završi test</a>
   </div>
 
 </body>
