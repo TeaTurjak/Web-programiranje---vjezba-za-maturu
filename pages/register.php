@@ -12,7 +12,14 @@ if (isset($_POST['ime']) and isset($_POST['email'])  and isset($_POST['lozinka']
         ':email' => $_POST['email'],
         ':lozinka' => $password
       ));
+      $stmt = $pdo->prepare('select * from korisnici where email = :email');
+      $stmt->execute(array(   
+        ':email' => $_POST['email']
+      ));
+      $result = $stmt->fetch();
+      $id_korisnika = $result['id'];
       $_SESSION['ime'] = $_POST['ime'];
+      $_SESSION['id_korisnika'] =  $id_korisnika;
     }catch(\PDOException $e){
 
     }

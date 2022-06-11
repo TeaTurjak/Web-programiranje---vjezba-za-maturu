@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+
 <?php 
 include '../db/db_connect.php';
 session_start();
@@ -10,10 +9,6 @@ $stmt->execute(array(
   ':polazni' => $_SESSION['polazniTekst']
 ));
 $result = $stmt->fetchAll();
-//echo var_dump($result);
-//echo '<pre>' . var_export($result, true) . '</pre>';
-
-
 if($_SESSION['polazniTekst'] == 1){
     $tekst = $pdo->prepare('select * from pitanja left join tekst on pitanja_id = pitanja.id where nizaVisa = :nizaVis and jezikKnjizevnost = :jK and imaTekst = :polazni');
     $tekst->execute(array(
@@ -22,9 +17,11 @@ if($_SESSION['polazniTekst'] == 1){
         ':polazni' => $_SESSION['polazniTekst']
       ));
     $resultTekst = $tekst->fetchAll();
-   // echo '<pre>' . var_export($resultTekst, true) . '</pre>';
 }
+if (!isset($_POST['rezultat'])){
 ?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <title>Priprema za maturu iz Hrvatskog jezika</title>
   <meta charset="utf-8">
@@ -118,24 +115,44 @@ if($_SESSION['polazniTekst'] == 1){
                   </div>';
     }
             
-
+       
         }
         ?>      
-
+ 
      </div>
      </div>
-
-
-
-
   </div>
      
 
   <div class="mb-5 d-flex justify-content-center">
       <a class="btn btn-success btn-lg btn-block" type="submit" id="Exit_btn">Završi test</a>
   </div>
-
 </body>
+  <?php 
+}
+  if (isset($_POST['rezultat'])){
+    //$rezultat = $_POST['rezultat'];
+    $rezultat = trim($_POST['rezultat'], ' ');
+    echo $rezultat;
+
+    
+    $stmt = $pdo->prepare('insert into rezultati (id_korisnika, nizaVisa, jk, rezultat) values (:id_korisnika, :nizaVisa, :jk, :rezultat)');
+      try{
+        $stmt->execute(array(
+          ':id_korisnika' => $_SESSION['id_korisnika'],
+          ':nizaVisa' => $_SESSION['razina'],
+          ':jk' => $_SESSION['kategorija'],
+          ':rezultat' => $_POST['rezultat'],
+          
+        ));
+        
+      }catch(\PDOException $e){
+  
+      }
+  }       
+        
+   ?>   
+
 
     
 

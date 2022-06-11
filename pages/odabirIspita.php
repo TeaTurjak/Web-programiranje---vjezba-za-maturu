@@ -3,6 +3,7 @@
 <?php 
 include '../db/db_connect.php';
 session_start();
+echo $_SESSION['id_korisnika'];
 if (isset($_POST['razina']) and isset($_POST['kategorija'])) {
  
  
@@ -17,6 +18,7 @@ if (isset($_POST['razina']) and isset($_POST['kategorija'])) {
     
 
   header('location: ispit.php');
+  
 }
 ?>
 <head>
@@ -66,7 +68,27 @@ $(document).ready(function(){
         </div>
     </div>
   </nav>
-
+<!-- 
+  <div class="modal fade detail" id="detailModal" tabindex="-1" aria-labelledby="detailModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="detailModalLabel">Details</h5> <button type="button" class="btn-close"
+                data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="input-group mb-3"> <span class="input-group-text">Jezik</span> <input type="text" required
+                  class="form-control" placeholder="Jezik" aria-label="Jezik:" name="Jezik" id="Jezik"
+                  disabled> </div>            </div>
+              <div class="input-group mb-3"> <span class="input-group-text">Knjizevnost</span> <input type="text" required
+                  class="form-control" placeholder="Knjizevnost" aria-label="Knjizevnost:" name="Knjizevnost" id="Knjizevnost"
+                  disabled> </div>            </div>
+            <div class="modal-footer"> <button type="button" class="btn btn-secondary"
+                data-bs-dismiss="modal">Close</button> </div>
+          </div>
+        </div>
+      </div> -->
     
  <div class="container-fluid p-lg-5 mt-5 bg-dark text-white">
  <p class="fs-5">Odaberi razinu:</p>

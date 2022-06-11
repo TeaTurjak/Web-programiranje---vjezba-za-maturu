@@ -17,6 +17,7 @@ if (isset($_POST['email']) and isset($_POST['lozinka'])) {
     $result = $stmt->fetch();
     if (password_verify($_POST['lozinka'], $result['lozinka'])){
       $_SESSION['ime'] = $_POST['ime'];
+      $_SESSION['id_korisnika'] = $result['id'];
       header('location: odabirIspita.php');
     }
    
