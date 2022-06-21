@@ -1,4 +1,3 @@
-
 <?php 
 include '../db/db_connect.php';
 session_start();
@@ -113,9 +112,7 @@ if (!isset($_POST['rezultat'])){
                 </label> 
             
                   </div>';
-    }
-            
-       
+    }          
         }
         ?>      
  
@@ -126,24 +123,25 @@ if (!isset($_POST['rezultat'])){
 
   <div class="mb-5 d-flex justify-content-center">
       <a class="btn btn-success btn-lg btn-block" type="submit" id="Exit_btn">Završi test</a>
+      <a class="btn btn-success btn-lg btn-block" style="display:none" type="submit" id="Završni_btn">Završi pregled</a>
   </div>
 </body>
   <?php 
 }
+
   if (isset($_POST['rezultat'])){
     //$rezultat = $_POST['rezultat'];
     $rezultat = trim($_POST['rezultat'], ' ');
     echo $rezultat;
-
     
-    $stmt = $pdo->prepare('insert into rezultati (id_korisnika, nizaVisa, jk, rezultat) values (:id_korisnika, :nizaVisa, :jk, :rezultat)');
+    $stmt = $pdo->prepare('insert into rezultati (id_korisnika, nizaVisa, jk, rezultat, polazni) values (:id_korisnika, :nizaVisa, :jk, :rezultat, :polazni)');
       try{
         $stmt->execute(array(
           ':id_korisnika' => $_SESSION['id_korisnika'],
           ':nizaVisa' => $_SESSION['razina'],
           ':jk' => $_SESSION['kategorija'],
           ':rezultat' => $_POST['rezultat'],
-          
+          ':polazni' => $_SESSION['polazniTekst'],
         ));
         
       }catch(\PDOException $e){

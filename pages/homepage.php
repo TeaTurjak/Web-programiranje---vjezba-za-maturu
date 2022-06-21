@@ -52,7 +52,7 @@
       <div class="col animate__animated animate__fadeIn animate__slow animate__delay-1s text-center">
         <div class="p-lg-5 text-black bg-white rounded-2 mt-2">
           <p class="fs-5">Riješavati ćeš istu količinu zadataka kao i na maturi, a nakon završetka ispita imati ćeš uvid u rezultate rješavanja. 
-           Zadaci su generirani slučajnim odabirom. Također, moći ćeš si zadati dodatan pritisak kao na maturi korištenjem timera gdje ćeš si zadati vrijeme za riješavanje kako bi mogao iskusiti potpuni doživaljaj kao na maturi.</p>
+           Zadaci su generirani slučajnim odabirom.</p>
         </div>
     </div>
 
