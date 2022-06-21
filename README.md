@@ -28,7 +28,7 @@ Korisnici će imati mogućnost izabrati težinu zadataka koju će rješavati ovi
 
 [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)     | [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
 :--------------------------------:|:----------------------------------------------:
-<img src="https://w7.pngwing.com/pngs/201/90/png-transparent-logo-html-html5.png" width=50% height=50%>  |  <img src="https://e7.pngegg.com/pngimages/239/228/png-clipart-html-css3-cascading-style-sheets-logo-markup-language-digital-agency-miscellaneous-blue-thumbnail.png" width=50% height=50%>
+<img src="https://w7.pngwing.com/pngs/201/90/png-transparent-logo-html-html5.png](https://www.w3.org/html/logo/downloads/HTML5_Logo_256.png" width=50% height=50%>  |  <img src="https://e7.pngegg.com/pngimages/239/228/png-clipart-html-css3-cascading-style-sheets-logo-markup-language-digital-agency-miscellaneous-blue-thumbnail.png" width=50% height=50%>
 
 - Za izradu aplikacije koristit će se jQuery, JavaScript, HTML i CSS.
 
