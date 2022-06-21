@@ -22,17 +22,17 @@ Korisnici će imati mogućnost izabrati težinu zadataka koju će rješavati ovi
 
 - Frontend će se raditi u Visual Studio Codeu koristeći Bootstrap.
 
-[React](https://reactjs.org/)     | [JavaScript](https://www.javascript.com/)
+[]()     | []()
 :--------------------------------:|:----------------------------------------------:
-<img src="https://cdn.coderons.com/general/tags/reactjs.png" width=50% height=50%>  |  <img src="https://cdn.coderons.com/general/tags/javascript.png" width=50% height=50%>
+<img src="" width=50% height=50%>  |  <img src="" width=50% height=50%>
 
-- Aplikacija će biti u Reactu, koristiti ćemo Javascript.
+- Aplikacija će biti u ...
 
 [odabrana tehnologija](https://www.google.com/)     | [odabrana tehnologija](https://www.google.com/)
 :--------------------------------:|:----------------------------------------------:
 <img src="?????" width=50% height=50%>  |  <img src="????" width=50% height=50%>
 
-- Baza podataka bit će uspostavljena pomoću...
+- Baza podataka bit će uspostavljena pomoću mySQL baze podataka
 
 ### Projektni tim:
 
