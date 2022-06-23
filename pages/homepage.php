@@ -44,7 +44,7 @@
         <div class="p-lg-5 text-black bg-white rounded-2 mt-2 ">
           <p class="fs-5">Možeš birati između riješavanja zadataka iz jezika ili zadataka iz književnosti uz odabir Više ili Niže razine.
             <br>
-            Moći ćeš riješavati zadatke s prijašnjih matura iz Hrvatskoga jezika ovisno o razini i tipu zadataka (jezik/književnost). Dodatan izazov za Višu razinu će biti zadaci s natjecanja iz Hrvatskoga jezika.
+            Moći ćeš riješavati zadatke s prijašnjih matura iz Hrvatskoga jezika ovisno o razini i tipu zadataka (jezik/književnost).
           </p>
         </div>
       </div>
@@ -52,14 +52,13 @@
       <div class="col animate__animated animate__fadeIn animate__slow animate__delay-1s text-center">
         <div class="p-lg-5 text-black bg-white rounded-2 mt-2">
           <p class="fs-5">Riješavati ćeš istu količinu zadataka kao i na maturi, a nakon završetka ispita imati ćeš uvid u rezultate rješavanja. 
-           Zadaci su generirani slučajnim odabirom. Također, moći ćeš si zadati dodatan pritisak kao na maturi korištenjem timera gdje ćeš si zadati vrijeme za riješavanje kako bi mogao iskusiti potpuni doživaljaj kao na maturi.</p>
+           Zadaci su generirani slučajnim odabirom.</p>
         </div>
     </div>
 
     <div class="col animate__animated animate__fadeIn animate__slow animate__delay-2s text-center">
       <div class="p-lg-5 text-black bg-white rounded-2 mt-2">
         <p class="fs-5">Imati ćeš mogućnost praćenja svojeg napretka rješavanja zadataka na svome profilu.</p>
-        <img src="..\images\chart.png" alt="Graf progresa" style="width:250px;" >
           
       </div>
     </div>

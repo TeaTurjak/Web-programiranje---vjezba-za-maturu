@@ -3,6 +3,7 @@
 <?php 
 include '../db/db_connect.php';
 session_start();
+echo $_SESSION['id_korisnika'];
 if (isset($_POST['razina']) and isset($_POST['kategorija'])) {
  
  
@@ -15,10 +16,9 @@ if (isset($_POST['razina']) and isset($_POST['kategorija'])) {
     $_SESSION['polazniTekst'] = 0;
   }
     
- 
 
   header('location: ispit.php');
- 
+  
 }
 ?>
 <head>
@@ -68,7 +68,6 @@ $(document).ready(function(){
         </div>
     </div>
   </nav>
-
     
  <div class="container-fluid p-lg-5 mt-5 bg-dark text-white">
  <p class="fs-5">Odaberi razinu:</p>
@@ -106,12 +105,15 @@ $(document).ready(function(){
                 S polaznim tekstom
             </label>
             </div>
-            <div class="form-check"  name="polazni">
-            <input class="form-check-input" type="checkbox" value="0" id="bezPolaznogCheck" name = "polazniTekst" onClick="ckChange(this)">
-            <label class="form-check-label" for="bezPolaznogCheckbox">
-                Bez polaznog teksta
-            </label>
-          </div>
+            <!--  
+              <div class="form-check"  name="polazni">
+                <input class="form-check-input" type="checkbox" value="0" id="bezPolaznogCheck" name = "polazniTekst" onClick="ckChange(this)">
+                <label class="form-check-label" for="bezPolaznogCheckbox">
+                    Bez polaznog teksta
+                </label>
+              </div>
+            -->
+            
           </div>
     </div>
         <button class="btn btn-success btn-lg btn-block mt-5" type="submit" id="Start_btn">Započni test</button>

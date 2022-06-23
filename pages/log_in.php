@@ -17,6 +17,7 @@ if (isset($_POST['email']) and isset($_POST['lozinka'])) {
     $result = $stmt->fetch();
     if (password_verify($_POST['lozinka'], $result['lozinka'])){
       $_SESSION['ime'] = $_POST['ime'];
+      $_SESSION['id_korisnika'] = $result['id'];
       header('location: odabirIspita.php');
     }
    
@@ -73,13 +74,13 @@ if (isset($_POST['email']) and isset($_POST['lozinka'])) {
                     <form method = "post" action = "log_in.php">
                     <div class="form-outline mb-4">
                       <label class="form-label" for="e-mail_input">Email adresa:</label>
-                      <input name="email" type="email" id="username" class="form-control form-control-lg" onclick="validateEmailForm()" placeholder="ime.prezime@gmail.com"/>
+                      <input name="email" type="email" id="username" class="form-control form-control-lg" onclick="validateEmailForm()" onkeyup="validateEmailForm()" placeholder="ime.prezime@gmail.com"/>
                       <div id="error-Username" class="text-danger"></div>
                     </div>
   
                     <div class="form-outline mb-4">
                       <label class="form-label" for="pass_input">Lozinka:</label>
-                      <input name="lozinka" type="password" id="password" class="form-control form-control-lg"  onclick="validatePasswordForm()"  placeholder="lozinka"/>
+                      <input name="lozinka" type="password" id="password" class="form-control form-control-lg"  onclick="validatePasswordForm()" onkeyup="validatePasswordForm()" placeholder="lozinka"/>
                       <div id="error-Password" class="text-danger"></div>
                     </div>
   
