@@ -105,12 +105,15 @@ $(document).ready(function(){
                 S polaznim tekstom
             </label>
             </div>
-            <div class="form-check"  name="polazni">
-            <input class="form-check-input" type="checkbox" value="0" id="bezPolaznogCheck" name = "polazniTekst" onClick="ckChange(this)">
-            <label class="form-check-label" for="bezPolaznogCheckbox">
-                Bez polaznog teksta
-            </label>
-          </div>
+            <!--  
+              <div class="form-check"  name="polazni">
+                <input class="form-check-input" type="checkbox" value="0" id="bezPolaznogCheck" name = "polazniTekst" onClick="ckChange(this)">
+                <label class="form-check-label" for="bezPolaznogCheckbox">
+                    Bez polaznog teksta
+                </label>
+              </div>
+            -->
+            
           </div>
     </div>
         <button class="btn btn-success btn-lg btn-block mt-5" type="submit" id="Start_btn">Započni test</button>

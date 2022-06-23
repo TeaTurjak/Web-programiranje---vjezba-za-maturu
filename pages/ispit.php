@@ -1,7 +1,7 @@
 <?php 
 include '../db/db_connect.php';
 session_start();
-$stmt = $pdo->prepare('select * from pitanja where nizaVisa = :nizaVis and jezikKnjizevnost = :jK and imaTekst = :polazni');
+$stmt = $pdo->prepare('select * from pitanja where nizaVisa = :nizaVis and jezikKnjizevnost = :jK and imaTekst = :polazni order by rand()');
 $stmt->execute(array(
   ':nizaVis' => $_SESSION['razina'],
   ':jK' => $_SESSION['kategorija'],
@@ -9,7 +9,7 @@ $stmt->execute(array(
 ));
 $result = $stmt->fetchAll();
 if($_SESSION['polazniTekst'] == 1){
-    $tekst = $pdo->prepare('select * from pitanja left join tekst on pitanja_id = pitanja.id where nizaVisa = :nizaVis and jezikKnjizevnost = :jK and imaTekst = :polazni');
+    $tekst = $pdo->prepare('select * from pitanja left join tekst on pitanja_id = pitanja.id where nizaVisa = :nizaVis and jezikKnjizevnost = :jK and imaTekst = :polazni order by rand()');
     $tekst->execute(array(
         ':nizaVis' => $_SESSION['razina'],
         ':jK' => $_SESSION['kategorija'],
@@ -85,8 +85,104 @@ if (!isset($_POST['rezultat'])){
         <?php 
         $counter = 1;
         
-        
+        $counterJezik=25;
+        $counterPolazni=30;
+        $counterBezPolazni=25;
 
+
+        if($kategorija=="Jezik"){
+          for($i = 0; $i< $counterJezik; $i++){
+            //if($_SESSION['polazni'] == 1) TODO dodati ako ima polazni onda 30 pitanja u suprotnom 25
+             
+            $odgovori = $pdo->prepare('select * from odgovori where pitanja_id = :id order by rand()');
+            $odgovori->execute(array(
+              ':id' => $result[$i]['id'],
+            ));
+            $odgovoriResult = $odgovori->fetchAll();
+            //echo '<pre>' . var_export($odgovoriResult, true) . '</pre>';
+           
+            if($_SESSION['polazniTekst'] == 1 && $i%3==0){
+                echo '<p class="fs-6 fst-italic" id="polazniTekst"> '.$resultTekst[$i]['tekstValue'].'</p>';
+            }
+               
+              echo '<p id="pitanje" class="fs-5" style= "width:500px;">'. ($counter) .'. '.$result[$i]['pitanjeValue'].'</p>';
+              $counter+=1;
+           
+              for($j = 0; $j < count($odgovoriResult); $j++){
+                  echo ' <div class="list-group">
+                  <label class="list-group-item">
+                      <input class="form-check-input me-1" type="radio" value="" name="'.$odgovoriResult[$j]['pitanja_id'].'" id="'.$odgovoriResult[$j]['id'].'">
+                   '.$odgovoriResult[$j]['odgovorValue'].'
+                  </label> 
+              
+                    </div>';
+              }          
+          }
+        }
+        if($kategorija=="Književnost"){
+          if($polazniTekst=="s polaznim tekstom"){
+            for($i = 0; $i< $counterPolazni; $i++){
+              //if($_SESSION['polazni'] == 1) TODO dodati ako ima polazni onda 30 pitanja u suprotnom 25
+               
+              $odgovori = $pdo->prepare('select * from odgovori where pitanja_id = :id order by rand()');
+              $odgovori->execute(array(
+                ':id' => $result[$i]['id'],
+              ));
+              $odgovoriResult = $odgovori->fetchAll();
+              //echo '<pre>' . var_export($odgovoriResult, true) . '</pre>';
+             
+              if($_SESSION['polazniTekst'] == 1 && $i%3==0){
+                  echo '<p class="fs-6 fst-italic" id="polazniTekst"> '.$resultTekst[$i]['tekstValue'].'</p>';
+              }
+                 
+                echo '<p id="pitanje" class="fs-5" style= "width:500px;">'. ($counter) .'. '.$result[$i]['pitanjeValue'].'</p>';
+                $counter+=1;
+             
+                for($j = 0; $j < count($odgovoriResult); $j++){
+                    echo ' <div class="list-group">
+                    <label class="list-group-item">
+                        <input class="form-check-input me-1" type="radio" value="" name="'.$odgovoriResult[$j]['pitanja_id'].'" id="'.$odgovoriResult[$j]['id'].'">
+                     '.$odgovoriResult[$j]['odgovorValue'].'
+                    </label> 
+                
+                      </div>';
+                }          
+            }
+          }
+
+          if($polazniTekst=="bez polaznog teksta"){
+            for($i = 0; $i< $counterBezPolazni; $i++){
+              //if($_SESSION['polazni'] == 1) TODO dodati ako ima polazni onda 30 pitanja u suprotnom 25
+               
+              $odgovori = $pdo->prepare('select * from odgovori where pitanja_id = :id order by rand()');
+              $odgovori->execute(array(
+                ':id' => $result[$i]['id'],
+              ));
+              $odgovoriResult = $odgovori->fetchAll();
+              //echo '<pre>' . var_export($odgovoriResult, true) . '</pre>';
+             
+              if($_SESSION['polazniTekst'] == 1 && $i%3==0){
+                  echo '<p class="fs-6 fst-italic" id="polazniTekst"> '.$resultTekst[$i]['tekstValue'].'</p>';
+              }
+                 
+                echo '<p id="pitanje" class="fs-5" style= "width:500px;">'. ($counter) .'. '.$result[$i]['pitanjeValue'].'</p>';
+                $counter+=1;
+             
+                for($j = 0; $j < count($odgovoriResult); $j++){
+                    echo ' <div class="list-group">
+                    <label class="list-group-item">
+                        <input class="form-check-input me-1" type="radio" value="" name="'.$odgovoriResult[$j]['pitanja_id'].'" id="'.$odgovoriResult[$j]['id'].'">
+                     '.$odgovoriResult[$j]['odgovorValue'].'
+                    </label> 
+                
+                      </div>';
+                }          
+            }
+          }
+
+        }
+        
+        /*
         for($i = 0; $i< count($result); $i++){
           //if($_SESSION['polazni'] == 1) TODO dodati ako ima polazni onda 30 pitanja u suprotnom 25
            
@@ -97,9 +193,9 @@ if (!isset($_POST['rezultat'])){
           $odgovoriResult = $odgovori->fetchAll();
           //echo '<pre>' . var_export($odgovoriResult, true) . '</pre>';
          
-          if($_SESSION['polazniTekst'] == 1 and $i%3==0){
+          if($_SESSION['polazniTekst'] == 1 && $i%3==0){
               echo '<p class="fs-6 fst-italic" id="polazniTekst"> '.$resultTekst[$i]['tekstValue'].'</p>';
-         }
+          }
              
             echo '<p id="pitanje" class="fs-5" style= "width:500px;">'. ($counter) .'. '.$result[$i]['pitanjeValue'].'</p>';
             $counter+=1;
@@ -112,8 +208,9 @@ if (!isset($_POST['rezultat'])){
                 </label> 
             
                   </div>';
-    }          
+            }          
         }
+        */
         ?>      
  
      </div>
